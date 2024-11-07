@@ -17,6 +17,7 @@ import org.objectweb.asm.tree.InvokeDynamicInsnNode;
 import org.objectweb.asm.tree.LabelNode;
 import org.objectweb.asm.tree.LdcInsnNode;
 import org.objectweb.asm.tree.LocalVariableNode;
+import org.objectweb.asm.tree.LookupSwitchInsnNode;
 import org.objectweb.asm.tree.MethodInsnNode;
 import org.objectweb.asm.tree.MultiANewArrayInsnNode;
 import org.objectweb.asm.tree.TableSwitchInsnNode;
@@ -1327,6 +1328,18 @@ public class Simulator {
 					int value = parseInt(known);
 					if (value >= sw.min && value <= sw.max) {
 						return Optional.of(sw.labels.get(value - sw.min).getLabel());
+					} else {
+						return Optional.of(sw.dflt.getLabel());
+					}
+				}
+			}
+			case LOOKUPSWITCH -> {
+				var sw = (LookupSwitchInsnNode) node;
+				String known = popped.get(0).getKnownValue();
+				if (isInt(known)) {
+					int value = parseInt(known);
+					if (sw.keys.contains(value)) {
+						return Optional.of(sw.labels.get(sw.keys.indexOf(value)).getLabel());
 					} else {
 						return Optional.of(sw.dflt.getLabel());
 					}

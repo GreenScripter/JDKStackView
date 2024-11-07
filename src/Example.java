@@ -123,4 +123,41 @@ public class Example {
 
 	}
 
+	public static int simpleSwitch() {
+		int i = 0;
+		int c = 0;
+		switch (i + 1) {
+			case 1:
+				c += 2;
+				break;
+			case 2:
+				c += 1;
+				break;
+			case 3:
+				c += 2;
+				break;
+			default:
+				c++;
+
+		}
+		return c;
+	}
+	
+	public static int skipSwitch() {
+		int i = 0;
+		int c = 0;
+		switch (i + 1) {
+			case 1:
+				c += 2;
+				break;
+			case 30000:
+				c += 2;
+				break;
+			default:
+				c++;
+
+		}
+		return c;
+	}
+
 }
