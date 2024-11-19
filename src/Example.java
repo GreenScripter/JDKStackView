@@ -59,6 +59,8 @@ public class Example {
 
 	public static void math() {
 		int nine = 9;
+		long shift = 7l >> nine;
+
 		int imul = 2 * nine;
 		int iadd = 2 + nine;
 		int isub = 2 - nine;
@@ -72,6 +74,7 @@ public class Example {
 		int ior = one | 0;
 		int iand = one & 0;
 		int ixor = one ^ one;
+
 		double two = 2.0;
 		double dmul = 4.5 * two;
 	}
@@ -142,7 +145,7 @@ public class Example {
 		}
 		return c;
 	}
-	
+
 	public static int skipSwitch() {
 		int i = 0;
 		int c = 0;

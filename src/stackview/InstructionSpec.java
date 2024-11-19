@@ -292,19 +292,19 @@ public class InstructionSpec extends MethodVisitor {
 				alter.remove(StackOp.INT, StackOp.INT).add(StackOp.INT);
 			}
 			case LSHL -> {
-				alter.remove(StackOp.LONG, StackOp.LONG).add(StackOp.LONG);
+				alter.remove(StackOp.INT, StackOp.LONG).add(StackOp.LONG);
 			}
 			case ISHR -> {
 				alter.remove(StackOp.INT, StackOp.INT).add(StackOp.INT);
 			}
 			case LSHR -> {
-				alter.remove(StackOp.LONG, StackOp.LONG).add(StackOp.LONG);
+				alter.remove(StackOp.INT, StackOp.LONG).add(StackOp.LONG);
 			}
 			case IUSHR -> {
 				alter.remove(StackOp.INT, StackOp.INT).add(StackOp.INT);
 			}
 			case LUSHR -> {
-				alter.remove(StackOp.LONG, StackOp.LONG).add(StackOp.LONG);
+				alter.remove(StackOp.INT, StackOp.LONG).add(StackOp.LONG);
 			}
 			case IAND -> {
 				alter.remove(StackOp.INT, StackOp.INT).add(StackOp.INT);
